@@ -53,7 +53,7 @@ def formatting_data_types(dataframe:pd.DataFrame)-> pd.DataFrame:
     
     dataframe2 = dataframe.copy()
     dataframe2["customer_lifetime_value"] = pd.to_numeric(dataframe2["customer_lifetime_value"])
-    dataframe2["number_of_open_complaints"] = dataframe2["number_of_open_complaints"].apply(lambda x: str(x).split()[0][2] if pd.notnull(x) or int else x)
+    dataframe2["number_of_open_complaints"] = dataframe2["number_of_open_complaints"].apply(lambda x: str(x).split()[0][2] if len(str(x))==6 else x)
     dataframe2["number_of_open_complaints"] = pd.to_numeric(dataframe2["number_of_open_complaints"])
     return dataframe2
 
